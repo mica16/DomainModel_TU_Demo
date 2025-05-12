@@ -1,4 +1,4 @@
-# DomamonModel_TU_Demo
+# DomainModel_TU_Demo
 Projet relatif à ma vidéo Youtube : 
 
 https://www.youtube.com/watch?v=6Tr9ePVxJxk
