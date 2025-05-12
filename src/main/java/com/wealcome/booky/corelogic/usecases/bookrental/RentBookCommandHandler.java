@@ -6,8 +6,6 @@ import com.wealcome.booky.corelogic.models.DateTimeProvider;
 import com.wealcome.booky.corelogic.models.RenterRepository;
 import jakarta.transaction.Transactional;
 
-import java.time.Clock;
-
 @Transactional
 public class RentBookCommandHandler {
 
@@ -27,14 +25,14 @@ public class RentBookCommandHandler {
         var renter = renterRepository.byId(command.renterId());
         var book = bookRepository.byId(command.bookId());
 
-        var renterAge = (int) renter.dateOfBirth().until(
+        var renterAge = (int) renter.getDateOfBirth().until(
                 dateTimeProvider.now().toLocalDate(),
                 java.time.temporal.ChronoUnit.YEARS
         );
 
         if (book.isNotAvailableForRental())
             throw new BookNotAvailableException("Book is not available for rental");
-        book.rent(renter.id(), renterAge, dateTimeProvider.now());
+        book.rent(renter.getId(), renterAge, dateTimeProvider.now());
     }
 
 }

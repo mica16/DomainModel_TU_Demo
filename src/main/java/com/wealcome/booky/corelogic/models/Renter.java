@@ -5,6 +5,15 @@ import lombok.Getter;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public record Renter(@Getter UUID id, @Getter LocalDate dateOfBirth) {
+public final class Renter {
+    @Getter
+    private final UUID id;
+    @Getter
+    private final LocalDate dateOfBirth;
+
+    public Renter(UUID id, LocalDate dateOfBirth) {
+        this.id = id;
+        this.dateOfBirth = dateOfBirth;
+    }
 
 }

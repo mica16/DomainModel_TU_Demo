@@ -17,6 +17,6 @@ public class FakeRenterRepository implements RenterRepository {
     }
 
     public void feedWith(Renter renter) {
-        rentersByIds.put(renter.id(), renter);
+        rentersByIds.put(renter.getId(), renter);
     }
 }
